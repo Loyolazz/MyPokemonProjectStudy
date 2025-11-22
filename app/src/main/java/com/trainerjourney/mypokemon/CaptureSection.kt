@@ -1,8 +1,6 @@
 package com.trainerjourney.mypokemon
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,8 +12,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-// import androidx.compose.material3.ExposedDropdownMenu // <- REMOVE THIS LINE
+import androidx.compose.material3.ExposedDropdownMenu
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
@@ -53,19 +52,22 @@ fun CaptureSection(
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        Box {
+        ExposedDropdownMenuBox(
+            expanded = expanded,
+            onExpandedChange = { expanded = !expanded }
+        ) {
             androidx.compose.material3.OutlinedTextField(
                 value = selectedRegion,
                 onValueChange = {},
                 readOnly = true,
                 label = { Text("Região") },
-                trailingIcon = { Text(if (expanded) "▲" else "▼") },
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { expanded = !expanded },
+                    .menuAnchor()
+                    .fillMaxWidth(),
                 colors = OutlinedTextFieldDefaults.colors()
             )
-            DropdownMenu(
+            ExposedDropdownMenu(
                 expanded = expanded,
                 onDismissRequest = { expanded = false }
             ) {
