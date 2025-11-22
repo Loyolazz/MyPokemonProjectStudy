@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.loyolal2.mypokemon"
+    namespace = "com.trainerjourney.mypokemon"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.loyolal2.mypokemon"
+        applicationId = "com.trainerjourney.mypokemon"
         minSdk = 27
         targetSdk = 36
         versionCode = 1
@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
@@ -56,4 +57,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp.logging)
+    implementation(libs.serialization.json)
+    implementation(libs.coroutines.android)
+    implementation(libs.coil.compose)
 }
