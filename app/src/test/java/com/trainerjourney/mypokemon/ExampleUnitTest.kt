@@ -1,4 +1,4 @@
-package com.loyolal2.mypokemon
+package com.trainerjourney.mypokemon
 
 import org.junit.Test
 
